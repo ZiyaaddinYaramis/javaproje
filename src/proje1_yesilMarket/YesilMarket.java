@@ -7,10 +7,21 @@ import java.util.Scanner;
 
 public class YesilMarket {
 	
-	public static List <String> ürünler = new ArrayList<>();  // Global
-	public static List <Double> fiyatlar = new ArrayList<>();
+	public static List <String> urunler = new ArrayList<>();  // Global = class level degisken yani bu classda gecerli olsun diye
+															  // mainde kullanacagiz diye static yaptik
+															  //default protected gibidir
 	
-	public static List <String> sepetÜrünler = new ArrayList<>();
+	public static List <Double> fiyatlar = new ArrayList<>(); 
+	
+	
+	
+	public static List <String> sepetUrunler = new ArrayList<>();
+	
+	
+	
+	
+	
+	
 	public static List <Double> sepetKg = new ArrayList<>();
 	public static List <Double> sepetFiyatlar = new ArrayList<>();
 	
@@ -42,36 +53,62 @@ public class YesilMarket {
 		 * 6. Eğer devam etmek istiyorsa yeniden ürün seçme kısmına yönlendiriniz.
 		 * 7. Eğer bitirmek istiyorsa ödeme kısmına geçiniz ve ödem sonrasında programı bitirinzi.
 		 */
-		Scanner scan = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in); //  main mathod un icinde ve yukarida yazmak daha dogru ve guzeldir
 		
-		ürünler.addAll(Arrays.asList("Domates","Patates","Biber","Soğan","Havuç",
+		
+		//urunler.add("Domates"); // bu sekilde teker teker girmek uzun surecektir bunun yerine 
+		// urunler.addAll collextion u daha kolaybir yoldur
+		
+		
+		urunler.addAll(Arrays.asList("Domates","Patates","Biber","Soğan","Havuç", // Arrays.asList ==> array'den aslist'e
 				                     "Elma","Muz","Çilek","Kavun","Üzüm","Limon"));
 		
 		
 		fiyatlar.addAll(Arrays.asList(2.1, 3.2, 1.5, 2.3, 3.1, 1.2, 1.9, 6.1, 4.3, 2.7, 0.5));	
 		
-		ürünListele();
+		
+		
+		
+		urunListele(); // sadece urun listesini ekrana yazdiriyoruz bu method'un görevi budur.
+		
 		System.out.println("Ürününüzü numaraya göre seçiniz:");
-		int ürünNo = scan.nextInt();
+		int urunNo = scan.nextInt();
+		
 		System.out.println("Ağırlık giriniz:");
 		double kg = scan.nextDouble();
-		sepeteEkle(ürünNo, kg);
+		
+		
+		sepeteEkle(urunNo, kg);
 		
 	}
 	
-	public static void ürünListele() {
-		System.out.println("No\t Ürünler \tFiyatlar");
+	public static void urunListele() { // mainden erismek icin static yapmaliyiz
+		
+		
+		System.out.println("No\t Ürünler \tFiyatlar"); // \t bir tab bosluk koyar
 		System.out.println("===\t ======== \t========");
 		
-		for (int i = 0; i<ürünler.size(); i++) {
-			System.out.println(" "+ i + "\t" + ürünler.get(i) + "\t \t   " + fiyatlar.get(i));
+		for (int i = 0; i<urunler.size(); i++) {
+			
+			
+			System.out.println(" "+ i + "\t" + urunler.get(i) + "\t \t   " + fiyatlar.get(i));  // (dönguye iterasyon deniyor)
+			//.get(i) ==> i'inci index'i getirir ve yazdirir
+			
 		}
 	}
 	
-	public static void sepeteEkle(int ürünNo, double kg) {
-		sepetÜrünler.add(ürünler.get(ürünNo));
+	
+	
+	public static void sepeteEkle(int urunNo, double kg) {
+		
+		
+		sepetUrunler.add(urunler.get(urunNo));
+		
+		
 		sepetKg.add(kg);
-		sepetFiyatlar.add(fiyatlar.get(ürünNo) * kg);
+		
+		
+		sepetFiyatlar.add(fiyatlar.get(urunNo) * kg);
 		
 	}
 	
