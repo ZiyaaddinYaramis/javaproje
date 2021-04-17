@@ -16,12 +16,6 @@ public class YesilMarket {
 	
 	
 	public static List <String> sepetUrunler = new ArrayList<>();
-	
-	
-	
-	
-	
-	
 	public static List <Double> sepetKg = new ArrayList<>();
 	public static List <Double> sepetFiyatlar = new ArrayList<>();
 	
@@ -80,6 +74,16 @@ public class YesilMarket {
 		
 		sepeteEkle(urunNo, kg);
 		
+		sepeteYazdir();
+		
+		System.out.println("Alisverise devam etmek istermisiniz?");
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	public static void urunListele() { // mainden erismek icin static yapmaliyiz
@@ -102,7 +106,8 @@ public class YesilMarket {
 	public static void sepeteEkle(int urunNo, double kg) {
 		
 		
-		sepetUrunler.add(urunler.get(urunNo));
+		sepetUrunler.add(urunler.get(urunNo)); //  urunleri sepete ekleyecegiz ve bunu urunler.get() methodu ile 
+											   //  urunler Colection'undan getirdik
 		
 		
 		sepetKg.add(kg);
@@ -112,8 +117,16 @@ public class YesilMarket {
 		
 	}
 	
-	
-	
-	
+	public static void sepeteYazdir() {
+		
+		System.out.println("Urun adi \tKg \tFiyati ");
+		System.out.println("=============================");
+		for (int i = 0; i < sepetUrunler.size(); i++) {
+	    System.out.println("/**/");		
+			
+		}
+			
+	}
+		
 
 }
