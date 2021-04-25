@@ -1,4 +1,4 @@
-package proje2_KitapYonetimi;
+package proje2_kitapYonetimi;
 
 public class Kitap {
 
